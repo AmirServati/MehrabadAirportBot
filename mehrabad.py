@@ -10,9 +10,9 @@ CHANNEL_LINK = "[Mehrabad Airport](https://t.me/mehrabad_airport)"
 
 def caption(bot, update):
     try:
-        content = update.message.text   #for video / photo
+        content = update.message.text   #for plain text
     except:
-        content = update.message.caption    #for plain text
+        content = update.message.caption    #for video / photo
     finally:
         pass
     if "Mehrabad Airport" in content:
@@ -23,7 +23,7 @@ def caption(bot, update):
 updater = Updater(TOKEN)
 dispatcher = updater.dispatcher
 
-dispatcher.add_handler(MessageHandler(Filters.text, caption))
+dispatcher.add_handler(MessageHandler(Filters.document, caption))
 
 #updater.start_polling()
 updater.start_webhook(listen="0.0.0.0",
