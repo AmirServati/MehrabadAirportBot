@@ -23,16 +23,14 @@ def message(bot, update):
                         parse_mode=ParseMode.MARKDOWN)
 
 def caption(bot, update):
-    message_id   = update.effective_message.message_id
-    message_type = update.effective_message.document.mime_type
-    bot.sendMessage(text=message_type,
+    bot.sendMessage(text="here",
                         chat_id="@amirstestchannel",
                         parse_mode=ParseMode.MARKDOWN)
 updater = Updater(TOKEN)
 dispatcher = updater.dispatcher
 
 dispatcher.add_handler(MessageHandler(Filters.text, message))
-dispatcher.add_handler(MessageHandler(Filters.document, caption))
+dispatcher.add_handler(MessageHandler(Filters.update.channel_posts, caption))
 
 
 #updater.start_polling()
