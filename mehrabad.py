@@ -8,12 +8,11 @@ TOKEN = "992894946:AAHrFRfhetVL4dhlE_xjFJgJ75VWDYRC_ss"
 PORT = int(os.environ.get('PORT', '5000'))
 CHANNEL_LINK = "[Mehrabad Airport](https://t.me/mehrabad_airport)"
 
-def caption(bot, update):
-    bot.send_message(text=update.message, chat_id="@amirstestchannel")    
+def caption(bot, update):   
     try:
         content = update.message.text   #for plain text
     except:
-        content = update.message.caption    #for video / photo
+        content = update.message.channel_post    #for video / photo
     finally:
         pass
     if "Mehrabad Airport" in content:
