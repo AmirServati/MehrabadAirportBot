@@ -6,6 +6,7 @@ from emoji import emojize
 import os
 TOKEN = "992894946:AAHrFRfhetVL4dhlE_xjFJgJ75VWDYRC_ss"
 PORT = int(os.environ.get('PORT', '5000'))
+CHANNEL_LINK = "[Mehrabad Airport](https://t.me/mehrabad_airport)"
 
 def caption(bot, update):
     try:
@@ -14,6 +15,10 @@ def caption(bot, update):
         content = update.message.caption    #for plain text
     finally:
         pass
+    if "Mehrabad Airport" in content:
+        content = content.replace("Mehrabad Airport", CHANNEL_LINK)
+    else:
+        content = content + "\n\n" + CHANNEL_LINK
     bot.send_message(text=content, chat_id=112137855)
 updater = Updater(TOKEN)
 dispatcher = updater.dispatcher
