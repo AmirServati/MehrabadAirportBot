@@ -23,7 +23,8 @@ def caption(bot, update):
 updater = Updater(TOKEN)
 dispatcher = updater.dispatcher
 
-dispatcher.add_handler(MessageHandler(Filters.document, caption))
+dispatcher.add_handler(MessageHandler(Filters.text, caption))
+
 
 #updater.start_polling()
 updater.start_webhook(listen="0.0.0.0",
