@@ -30,7 +30,7 @@ updater = Updater(TOKEN)
 dispatcher = updater.dispatcher
 
 dispatcher.add_handler(MessageHandler(Filters.text, message))
-dispatcher.add_handler(MessageHandler(Filters.update.channel_posts, caption))
+dispatcher.add_handler(MessageHandler(Filters.document, caption))
 
 
 #updater.start_polling()
