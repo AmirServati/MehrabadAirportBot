@@ -21,6 +21,7 @@ def caption(bot, update):
 
     else:
         content = content + "\n\n" + CHANNEL_LINK
+
     try:
         bot.editMessageText(text=content,
                         chat_id="@amirstestchannel",
@@ -34,8 +35,7 @@ def caption(bot, update):
 updater = Updater(TOKEN)
 dispatcher = updater.dispatcher
 
-dispatcher.add_handler(MessageHandler(Filters.text, caption))
-dispatcher.add_handler(MessageHandler(Filters.document, caption))
+dispatcher.add_handler(MessageHandler(Filters.all, caption))
 
 
 #updater.start_polling()
