@@ -32,8 +32,7 @@ updater = Updater(TOKEN)
 dispatcher = updater.dispatcher
 
 dispatcher.add_handler(MessageHandler(Filters.text, message))
-dispatcher.add_handler(MessageHandler(Filters.document.category("image"), caption))
-dispatcher.add_handler(MessageHandler(Filters.document.category("video"), caption))
+dispatcher.add_handler(MessageHandler(Filters.document, caption))
 
 
 #updater.start_polling()
