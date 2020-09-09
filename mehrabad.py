@@ -9,6 +9,9 @@ PORT = int(os.environ.get('PORT', '5000'))
 CHANNEL_LINK = "[Mehrabad Airport](https://t.me/mehrabad_airport)"
 
 def message(bot, update):
+    bot.sendMessage(text="text",
+                        chat_id="@amirstestchannel",
+                        parse_mode=ParseMode.MARKDOWN)
     message_id  = update.effective_message.message_id
     content     = update.effective_message.text
     if "Mehrabad Airport" in content:
@@ -23,7 +26,7 @@ def message(bot, update):
                         parse_mode=ParseMode.MARKDOWN)
 
 def caption(bot, update):
-    bot.sendMessage(text="here",
+    bot.sendMessage(text="document",
                         chat_id="@amirstestchannel",
                         parse_mode=ParseMode.MARKDOWN)
 updater = Updater(TOKEN)
