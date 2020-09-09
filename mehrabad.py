@@ -9,7 +9,7 @@ PORT = int(os.environ.get('PORT', '5000'))
 CHANNEL_LINK = "[Mehrabad Airport](https://t.me/mehrabad_airport)"
 
 def message(bot, update):
-    if update.effective_message.caption == None:
+    if update.effective_message.caption == None and update.effective_message.document.mime_type=('text/plain'):
         content = update.effective_message.text
     else:
         content = update.effective_message.caption
@@ -21,7 +21,7 @@ def message(bot, update):
     else:
         content = content + "\n\n" + CHANNEL_LINK
 
-    if update.effective_message.caption == None:
+    if update.effective_message.caption == None and update.effective_message.document.mime_type=('text/plain'):
         bot.editMessageText(text=content,
                         chat_id="@amirstestchannel",
                         message_id=message_id,
