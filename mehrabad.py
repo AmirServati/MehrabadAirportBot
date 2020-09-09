@@ -10,7 +10,7 @@ CHANNEL_LINK = "[Mehrabad Airport](https://t.me/mehrabad_airport)"
 
 def caption(bot, update):   
     try:
-        content = update.message.channel_post    #for video / photo
+        content = update.effective_message.text    #for video / photo
         bot.send_message(text=content, chat_id="@amirstestchannel")
     except:
         pass
