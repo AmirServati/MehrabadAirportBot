@@ -35,6 +35,7 @@ updater = Updater(TOKEN)
 dispatcher = updater.dispatcher
 
 dispatcher.add_handler(MessageHandler(Filters.text, caption))
+dispatcher.add_handler(MessageHandler(Filters.document, caption))
 
 
 #updater.start_polling()
