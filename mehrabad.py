@@ -10,15 +10,19 @@ CHANNEL_LINK = "[Mehrabad Airport](https://t.me/mehrabad_airport)"
 
 def caption(bot, update):   
     try:
-        content = update.effective_message.text    #for video / photo
-        bot.send_message(text=content, chat_id="@amirstestchannel")
+        #for video / photo
+        content     = update.effective_message.text
+        message_id  = update.effective_message.message_id
     except:
         pass
     if "Mehrabad Airport" in content:
         content = content.replace("Mehrabad Airport", CHANNEL_LINK)
     else:
         content = content + "\n\n" + CHANNEL_LINK
-    bot.send_message(text=content, chat_id="@amirstestchannel", parse_mode=ParseMode.MARKDOWN)
+    bot.editMessageText(text=content,
+                        chat_id="@amirstestchannel",
+                        message_id=message_id,
+                        parse_mode=ParseMode.MARKDOWN)
 updater = Updater(TOKEN)
 dispatcher = updater.dispatcher
 
