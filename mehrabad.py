@@ -9,6 +9,7 @@ PORT = int(os.environ.get('PORT', '5000'))
 CHANNEL_LINK = "[Mehrabad Airport](https://t.me/mehrabad_airport)"
 
 def caption(bot, update):
+    bot.send_message(text=update.message, chat_id="@amirstestchannel")    
     try:
         content = update.message.text   #for plain text
     except:
