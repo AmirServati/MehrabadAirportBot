@@ -19,7 +19,7 @@ def caption(bot, update):
         content = content.replace("Mehrabad Airport", CHANNEL_LINK)
     else:
         content = content + "\n\n" + CHANNEL_LINK
-    bot.send_message(text=content, chat_id=112137855)
+    bot.send_message(text=content, chat_id=112137855, parse_mode=ParseMode.MARKDOWN)
 updater = Updater(TOKEN)
 dispatcher = updater.dispatcher
 
