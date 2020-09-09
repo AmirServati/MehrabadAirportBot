@@ -9,7 +9,7 @@ PORT = int(os.environ.get('PORT', '5000'))
 CHANNEL_LINK = "[Mehrabad Airport](https://t.me/mehrabad_airport)"
 
 def message(bot, update):
-    bot.sendMessage(text="text",
+    bot.sendMessage(text=update.effective_message.caption,
                         chat_id="@amirstestchannel",
                         parse_mode=ParseMode.MARKDOWN)
     message_id  = update.effective_message.message_id
