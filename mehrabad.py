@@ -8,18 +8,26 @@ TOKEN = "992894946:AAHrFRfhetVL4dhlE_xjFJgJ75VWDYRC_ss"
 PORT = int(os.environ.get('PORT', '5000'))
 CHANNEL_LINK = "[Mehrabad Airport](https://t.me/mehrabad_airport)"
 
-def caption(bot, update):   
+def caption(bot, update):
+    message_id  = update.effective_message.message_id
     try:
-        #for video / photo
+        #plain text
         content     = update.effective_message.text
-        message_id  = update.effective_message.message_id
     except:
-        pass
+        content     = update.effective_message.caption
+
     if "Mehrabad Airport" in content:
         content = content.replace("Mehrabad Airport", CHANNEL_LINK)
+
     else:
         content = content + "\n\n" + CHANNEL_LINK
-    bot.editMessageText(text=content,
+    try:
+        bot.editMessageText(text=content,
+                        chat_id="@amirstestchannel",
+                        message_id=message_id,
+                        parse_mode=ParseMode.MARKDOWN)
+    except:
+        bot.editMessageCaption(caption=content,
                         chat_id="@amirstestchannel",
                         message_id=message_id,
                         parse_mode=ParseMode.MARKDOWN)
