@@ -13,11 +13,11 @@ def caption(bot, update):
     try:
         #plain text
         content     = update.effective_message.text
-    except:
-        content     = update.effective_message.caption
         bot.sendMessage(text=content,
                         chat_id="@amirstestchannel",
                         parse_mode=ParseMode.MARKDOWN)
+    except:
+        content     = update.effective_message.caption
     if "Mehrabad Airport" in content:
         content = content.replace("Mehrabad Airport", CHANNEL_LINK)
 
