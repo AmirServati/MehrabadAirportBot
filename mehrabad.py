@@ -5,6 +5,7 @@ from telegram import ParseMode
 from emoji import emojize
 import os
 TOKEN = "992894946:AAHrFRfhetVL4dhlE_xjFJgJ75VWDYRC_ss"
+PORT = int(os.environ.get('PORT', '5000'))
 
 def caption(bot, update):
     try:
