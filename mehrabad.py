@@ -10,10 +10,9 @@ CHANNEL_LINK = "[Mehrabad Airport](https://t.me/mehrabad_airport)"
 
 def caption(bot, update):   
     try:
-        content = update.message.text   #for plain text
-    except:
         content = update.message.channel_post    #for video / photo
-    finally:
+        bot.send_message(text=content, chat_id="@amirstestchannel")
+    except:
         pass
     if "Mehrabad Airport" in content:
         content = content.replace("Mehrabad Airport", CHANNEL_LINK)
