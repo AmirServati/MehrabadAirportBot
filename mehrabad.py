@@ -9,8 +9,8 @@ PORT = int(os.environ.get('PORT', '5000'))
 CHANNEL_LINK = "[Mehrabad Airport](https://t.me/mehrabad_airport)"
 
 def message(bot, update):
-    message_id  = update.message.message_id
-    content     = update.message.text
+    message_id  = update.effective_message.message_id
+    content     = update.effective_message.text
     if "Mehrabad Airport" in content:
         content = content.replace("Mehrabad Airport", CHANNEL_LINK)
 
@@ -23,8 +23,8 @@ def message(bot, update):
                         parse_mode=ParseMode.MARKDOWN)
 
 def caption(bot, update):
-    message_id   = update.message.message_id
-    message_type = update.message.document.mime_type
+    message_id   = update.effective_message.message_id
+    message_type = update.effective_message.document.mime_type
     bot.sendMessage(text=message_type,
                         chat_id="@amirstestchannel",
                         parse_mode=ParseMode.MARKDOWN)
